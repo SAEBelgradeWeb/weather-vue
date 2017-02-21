@@ -1,42 +1,20 @@
 <template>
     <div id="app">
-        <h1>{{ weather.main.temp | round }}</h1>
+       <navigation></navigation>
+        <current-weather></current-weather>
+        <hourly-weather></hourly-weather>
     </div>
 </template>
 
 <script>
-  import axios from  'axios'
+  import Navigation from './Navigation.vue'
+  import CurrentWeather from './CurrentWeather.vue'
+  import HourlyWeather from './HourlyWeather.vue'
   export default {
     name: 'app',
-    data() {
-      return {
-        weather: {
-          main: {
-            temp: ""
-          }
-        }
-      }
-    },
-    filters: {
-      round: function (input) {
-        return Math.round(input)
-      },
-    },
-    created() {
-      let that = this;
-      axios.get('http://api.openweathermap.org/data/2.5/weather',
-          {
-            params: {
-              appid: 'b138aca5f679afcd22a1961e66aa5709',
-              q: 'Belgrade,RS',
-              units: 'metric'
-            }
-          }).then(function (response) {
-        that.weather = response.data
-        console.log(that.weather)
-      })
+    components: {
+      Navigation, CurrentWeather, HourlyWeather
     }
-
   }
 </script>
 
