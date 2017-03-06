@@ -1,20 +1,20 @@
 <template>
-    <div id="app">
-       <navigation></navigation>
-        <current-weather></current-weather>
-        <hourly-weather></hourly-weather>
+    <div id="root">
+        <router-link tag="li" to="/">
+            <a>Today</a>
+        </router-link>
+        <router-link tag="li" to="/ten-days">
+            <a>10 Days</a>
+        </router-link>
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
-  import Navigation from './Navigation.vue'
-  import CurrentWeather from './CurrentWeather.vue'
-  import HourlyWeather from './HourlyWeather.vue'
+
   export default {
     name: 'app',
-    components: {
-      Navigation, CurrentWeather, HourlyWeather
-    }
+
   }
 </script>
 

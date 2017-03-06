@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
+import router from './routes'
+
 
 new Vue({
   el: '#app',
-  mounted(){
-
-  },
-  render: h => h(App)
+  router,
+  template: '<App/>',
+  components: { App }
 })
